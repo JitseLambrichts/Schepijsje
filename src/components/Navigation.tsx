@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, IceCream, Coffee, Phone, Home, ShoppingCart, Image } from 'lucide-react';
 import Logo from './Logo';
@@ -22,8 +21,8 @@ const Navigation = () => {
         <div className="container flex h-16 items-center justify-between px-4 sm:px-8">
           <Logo />
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          {/* Desktop Navigation - Alleen tonen bij schermen groter dan 830px */}
+          <nav className="hidden max-[830px]:hidden min-[831px]:flex space-x-6">
             {navItems.map((item) => (
               item.href.startsWith('/#') ? (
                 <a
@@ -47,10 +46,10 @@ const Navigation = () => {
             ))}
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - Alleen tonen bij schermen kleiner dan 831px */}
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="md:hidden p-2 text-schepijsje-brown"
+            className="min-[831px]:hidden p-2 text-schepijsje-brown"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -58,10 +57,10 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Alleen tonen bij schermen kleiner dan 831px */}
       <div
         className={cn(
-          "fixed inset-0 top-16 z-50 bg-white md:hidden transition-transform duration-300 ease-in-out",
+          "fixed inset-0 top-16 z-50 bg-white min-[831px]:hidden transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

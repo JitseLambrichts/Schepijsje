@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,18 @@ const ReviewForm = ({ onReviewAdded }: ReviewFormProps) => {
   const [hoverRating, setHoverRating] = useState(0);
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Check for existing session
+    const getUser = async () => {
+      const { data } = await supabase.auth.getSession();
+      setUser(data.session?.user || null);
+    };
+    
+    getUser();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +40,15 @@ const ReviewForm = ({ onReviewAdded }: ReviewFormProps) => {
       });
       return;
     }
+
+    if (!user) {
+      toast({
+        title: "Inloggen vereist",
+        description: "Je moet ingelogd zijn om een review te plaatsen.",
+        variant: "destructive",
+      });
+      return;
+    }
     
     setLoading(true);
     
@@ -36,6 +56,7 @@ const ReviewForm = ({ onReviewAdded }: ReviewFormProps) => {
       const { error } = await supabase.from("reviews").insert({
         rating,
         comment,
+        user_id: user.id
       });
       
       if (error) throw error;
@@ -96,9 +117,9 @@ const ReviewForm = ({ onReviewAdded }: ReviewFormProps) => {
           <Button 
             type="submit" 
             className="w-full bg-schepijsje-lime hover:bg-schepijsje-lime/90 text-schepijsje-brown" 
-            disabled={loading}
+            disabled={loading || !user}
           >
-            {loading ? "Bezig met plaatsen..." : "Plaats Review"}
+            {loading ? "Bezig met plaatsen..." : user ? "Plaats Review" : "Log in om een review te plaatsen"}
           </Button>
         </CardFooter>
       </form>

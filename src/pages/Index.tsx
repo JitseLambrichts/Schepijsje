@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import MenuSection from '../components/MenuSection';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
+import Reviews from '../components/Reviews';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <MenuSection />
+        <Reviews />
         <AboutSection />
         <ContactSection />
       </main>

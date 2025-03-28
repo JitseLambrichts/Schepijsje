@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
-import { Menu, X, IceCream, Coffee, Phone, Home } from 'lucide-react';
+import { Menu, X, IceCream, Coffee, Phone, Home, MessageSquare } from 'lucide-react';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
+import AuthButton from './AuthButton';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', icon: <Home size={20} />, href: '#' },
     { name: 'Aanbod', icon: <IceCream size={20} />, href: '#aanbod' },
+    { name: 'Reviews', icon: <MessageSquare size={20} />, href: '#reviews' },
     { name: 'Contact', icon: <Phone size={20} />, href: '#contact' },
   ];
 
@@ -20,7 +22,7 @@ const Navigation = () => {
           <Logo />
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -31,6 +33,7 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <AuthButton />
           </nav>
 
           {/* Mobile menu button */}
@@ -63,6 +66,9 @@ const Navigation = () => {
               {item.name}
             </a>
           ))}
+          <div className="mt-2">
+            <AuthButton />
+          </div>
         </nav>
       </div>
     </header>

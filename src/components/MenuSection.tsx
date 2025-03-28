@@ -703,10 +703,12 @@ const MenuSection = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <div className="flex justify-center mt-4">
-                      <CarouselPrevious className="relative static mx-2 translate-y-0" />
-                      <CarouselNext className="relative static mx-2 translate-y-0" />
-                    </div>
+                    {category.title !== "Sorbets" && category.title !== "Extra's" && (
+                      <div className="flex justify-center mt-4">
+                        <CarouselPrevious className="relative static mx-2 translate-y-0" />
+                        <CarouselNext className="relative static mx-2 translate-y-0" />
+                      </div>
+                    )}
                   </Carousel>
                 </div>
               ) : (

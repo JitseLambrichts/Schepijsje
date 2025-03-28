@@ -10,22 +10,22 @@ const IjskarrenPage = () => {
     {
       title: "IJsbox",
       icon: <Package className="h-10 w-10 text-schepijsje-teal" />,
-      description: "Inhoud: vanaf 15 Ltr (150 bollen - 3 smaken)",
-      imageUrl: "/lovable-uploads/0be4d062-2ffc-4db0-9920-8d8e4105112c.png",
+      description: "Inhoud: max 15 L (150 bollen - 3 smaken)",
+      imageUrl: "/lovable-uploads/Ijsbox.jpg",
       details: "Onze handige ijsbox is ideaal voor kleinere evenementen en verjaardagsfeestjes. Makkelijk te transporteren en op te stellen."
     },
     {
       title: "Gelato Bar",
       icon: <IceCreamCone className="h-10 w-10 text-schepijsje-teal" />,
-      description: "Inhoud: vanaf 15 Ltr (150 bollen - 3 smaken) - max. 15 Ltr (150 bollen - 3 smaken)",
-      imageUrl: "/lovable-uploads/0be4d062-2ffc-4db0-9920-8d8e4105112c.png",
+      description: "Inhoud: vanaf 5 L (50 bollen - 1 smaak) - max. 13 L (130 bollen - 2 smaken)",
+      imageUrl: "/lovable-uploads/Gelato-Bar.jpg",
       details: "Onze gelato bar is perfect voor middelgrote evenementen. De professionele presentatie maakt indruk op uw gasten."
     },
     {
       title: 'IJskar "Piccolo"',
       icon: <Truck className="h-10 w-10 text-schepijsje-teal" />,
-      description: "Inhoud: vanaf 15 Ltr (150 bollen - 3 smaken) - max. 40 Ltr (400 bollen - 5 smaken)",
-      imageUrl: "/lovable-uploads/0be4d062-2ffc-4db0-9920-8d8e4105112c.png",
+      description: "Inhoud: vanaf 15 L (150 bollen - 3 smaken) - max. 40 Ltr (400 bollen - 5 smaken)",
+      imageUrl: "/lovable-uploads/IJskar-piccolo.jpg",
       details: "Onze traditionele ijskar 'Piccolo' is het pronkstuk voor elk evenement. Met ruimte voor meerdere smaken en authentieke uitstraling."
     }
   ];

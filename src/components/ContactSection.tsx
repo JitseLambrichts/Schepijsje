@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, Phone, Clock } from 'lucide-react';
@@ -59,11 +58,18 @@ const ContactSection = () => {
               <CardTitle className="text-schepijsje-brown text-2xl">Locatie</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="aspect-video bg-gray-200 rounded-md flex items-center justify-center">
-                <p className="text-gray-500 text-center p-4">
-                  Kaart van locatie zou hier worden weergegeven.<br />
-                  U kunt ons vinden op Hoogstraat 58, 3670 Meeuwen.
-                </p>
+              <div className="rounded-md overflow-hidden w-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5011.7127205032275!2d5.520643276600944!3d51.09265834091684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0d6fe46059915%3A0xdcc9c226ce3fbaf!2s&#39;t%20Schepijsje!5e0!3m2!1snl!2sbe!4v1743185168814!5m2!1snl!2sbe" 
+                  width="100%" 
+                  height="300" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Locatie 't Schepijsje"
+                  className="w-full"
+                />
               </div>
               <div className="mt-4">
                 <p className="text-gray-700">

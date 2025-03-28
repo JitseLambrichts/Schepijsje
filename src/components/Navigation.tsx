@@ -1,16 +1,19 @@
 
 import React, { useState } from 'react';
-import { Menu, X, IceCream, Coffee, Phone, Home } from 'lucide-react';
+import { Menu, X, IceCream, Coffee, Phone, Home, ShoppingCart, Image } from 'lucide-react';
 import Logo from './Logo';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', icon: <Home size={20} />, href: '#' },
-    { name: 'Aanbod', icon: <IceCream size={20} />, href: '#aanbod' },
-    { name: 'Contact', icon: <Phone size={20} />, href: '#contact' },
+    { name: 'Home', icon: <Home size={20} />, href: '/' },
+    { name: 'Aanbod', icon: <IceCream size={20} />, href: '/#aanbod' },
+    { name: 'Ijskarren', icon: <ShoppingCart size={20} />, href: '/ijskarren' },
+    { name: 'Foto\'s', icon: <Image size={20} />, href: '/fotos' },
+    { name: 'Contact', icon: <Phone size={20} />, href: '/#contact' },
   ];
 
   return (
@@ -22,14 +25,25 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium text-schepijsje-brown bg-schepijsje-lightlime hover:bg-schepijsje-lime transition-colors"
-              >
-                {item.icon}
-                {item.name}
-              </a>
+              item.href.startsWith('/#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium text-schepijsje-brown bg-schepijsje-lightlime hover:bg-schepijsje-lime transition-colors"
+                >
+                  {item.icon}
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium text-schepijsje-brown bg-schepijsje-lightlime hover:bg-schepijsje-lime transition-colors"
+                >
+                  {item.icon}
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -53,15 +67,27 @@ const Navigation = () => {
       >
         <nav className="flex flex-col p-4 space-y-4">
           {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2 p-3 text-lg font-medium text-schepijsje-brown hover:bg-schepijsje-lightlime rounded-md transition-colors"
-            >
-              {item.icon}
-              {item.name}
-            </a>
+            item.href.startsWith('/#') ? (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 p-3 text-lg font-medium text-schepijsje-brown hover:bg-schepijsje-lightlime rounded-md transition-colors"
+              >
+                {item.icon}
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 p-3 text-lg font-medium text-schepijsje-brown hover:bg-schepijsje-lightlime rounded-md transition-colors"
+              >
+                {item.icon}
+                {item.name}
+              </Link>
+            )
           ))}
         </nav>
       </div>

@@ -19,7 +19,7 @@ interface MenuItem {
 const MenuSection = () => {
   const categories = [
     {
-      title: "IJs smaken",
+      title: "Ijs smaken",
       items: [
         {
           id: 1,

@@ -36,6 +36,8 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold">Telefoon</h4>
                   <p>+32(0)11 / 74 38 45</p>
+                  <h4 className="font-semibold">Gsm</h4>
+                  <p>+32(0)478 / 21 59 75</p>
                 </div>
               </div>
               
@@ -44,9 +46,8 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold">Openingsuren</h4>
                   <ul className="space-y-1">
-                    <li><span className="font-medium">Maandag - Vrijdag:</span> 13:00 - 21:00</li>
-                    <li><span className="font-medium">Zaterdag - Zondag:</span> 12:00 - 22:00</li>
-                    <li><span className="font-medium">Feestdagen:</span> 12:00 - 22:00</li>
+                    <li><span className="font-medium">Alle dagen open van: </span> 14:00-22:00</li>
+                    <li><span className="font-medium">Maandag </span> GESLOTEN</li>
                   </ul>
                 </div>
               </div>
